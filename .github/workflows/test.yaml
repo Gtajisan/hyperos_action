@@ -21,6 +21,6 @@ jobs:
             # 部署 rclone
             curl https://rclone.org/install.sh | sudo bash
             mkdir -p $HOME/.config/rclone/
-            wget "${{ secrets.RECLONE }}" -o $HOME/.config/rclone/rclone.conf
+            aria2c -O $HOME/.config/rclone/rclone.conf "${{ secrets.RECLONE }}"
             touch $HOME/123.txt
             rclone sync -P $HOME/123.txt webdav:/HyperOS
