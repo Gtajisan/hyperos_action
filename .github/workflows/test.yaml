@@ -23,5 +23,4 @@ jobs:
             mkdir -p $HOME/.config/rclone/
             wget "${{ secrets.RECLONE }}" -o $HOME/.config/rclone/rclone.conf
             touch $HOME/123.txt
-            cat $HOME/.config/rclone/rclone.conf
             rclone sync -P $HOME/123.txt webdav:/HyperOS
