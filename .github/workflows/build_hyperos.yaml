@@ -53,8 +53,8 @@ jobs:
             echo "tosasitill made with love 0202 & 0227" >> info.md
             # 部署 rclone
             curl https://rclone.org/install.sh | sudo bash
-            mkdir -p $HOME/.config/rclone/
-            wget "${{ secrets.RECLONE }}" -o $HOME/.config/rclone/rclone.conf
+            mkdir -p ~/.config/rclone/
+            wget -O ~/.config/rclone/rclone.conf "${{ secrets.RECLONE }}"
             rclone sync -P ./hyperos_port/out/*.zip webdav:/HyperOS
       - name: 5.发布完成 Release
         uses: ncipollo/release-action@v1.12.0
